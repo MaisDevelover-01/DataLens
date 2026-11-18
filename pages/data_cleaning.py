@@ -6,6 +6,10 @@ from datalens.cleaning import (fill_missing_values, count_duplicate_rows, remove
 st.title("Data Cleaning 🧹")
 st.write("Clean and prepare your dataset for further analysis.")
 
+if "original_df" not in st.session_state:
+    st.info("Please upload a dataset first")
+    st.stop()
+
 # Check dataset availability
 if st.session_state.original_df is None:
     st.info("Please upload a dataset first.")

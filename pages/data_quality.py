@@ -5,6 +5,10 @@ from datalens.quality import (get_quality_summary, get_column_quality)
 st.title("Data Quality 🔍")
 st.write("Analyze the quality of your dataset.")
 
+if "original_df" not in st.session_state:
+    st.info("Please upload a dataset first")
+    st.stop()
+
 df = st.session_state.cleaned_df
 
 if df is None:

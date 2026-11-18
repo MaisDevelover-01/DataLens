@@ -4,6 +4,10 @@ from datalens.visualization import ( get_numeric_columns, calculate_statistics, 
 st.title("Data Visualization 📊")
 st.write("Explore statistical information and data distributions.")
 
+if "original_df" not in st.session_state:
+    st.info("Please upload a dataset first")
+    st.stop()
+
 df = st.session_state.cleaned_df
 if df is None:
     st.info("Please upload a dataset first.")

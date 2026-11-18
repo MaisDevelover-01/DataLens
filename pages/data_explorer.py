@@ -18,7 +18,12 @@ if st.button("Load Dataset", disabled=uploaded_file is None):
 
 
 # Display loaded dataset
-df = st.session_state.original_df #this line retrieves the original dataset from the session state and assigns it to the variable df. This allows the app to display the dataset and its details if it has been successfully loaded.
+if "original_df" not in st.session_state:
+    st.info("Please uploade a dataset first")
+    st.stop()
+
+df = st.session_state.original_df 
+#this line retrieves the original dataset from the session state and assigns it to the variable df
 
 if df is not None:
     st.divider()
